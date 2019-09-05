@@ -6,6 +6,11 @@ export const Container = styled.div`
   height: calc(100vw * (577 / 1140));
   position: relative;
   overflow: hidden;
+  a {
+    color: #a1d7f0;
+    font-size: 0px;
+    text-decoration: none;
+  }
 `;
 
 export const Link = styled.a`

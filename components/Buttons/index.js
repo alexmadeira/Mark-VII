@@ -1,12 +1,15 @@
 import React from 'react';
+import { Link } from '../../routes';
 
-// import { Container } from './styles';
+import { Outline, Solid, Invisibile } from './styles';
 
-export default function Buttons({ type, children, to }) {
+export default function Buttons(props) {
+  const { type, children, to } = props;
+
   switch (type) {
     case 'solid':
       return (
-        <SolidButtom
+        <Solid
           content={children}
           loadNexPage={() => {
             nexPage({ history, to });
@@ -15,7 +18,7 @@ export default function Buttons({ type, children, to }) {
       );
     case 'invisibile':
       return (
-        <InvisibileButtom
+        <Invisibile
           content={children}
           loadNexPage={() => {
             nexPage({ history, to });
@@ -24,16 +27,15 @@ export default function Buttons({ type, children, to }) {
       );
     case 'outline':
       return (
-        <OutlineButtom
-          content={children}
-          loadNexPage={() => {
-            nexPage({ history, to });
-          }}
-        />
+        <Link route={to}>
+          <Outline>{children}</Outline>
+        </Link>
       );
+    case 'link':
+      return <Outline {...props}>{children}</Outline>;
     default:
       return (
-        <SolidButtom
+        <Solid
           content={children}
           loadNexPage={() => {
             nexPage({ history, to });

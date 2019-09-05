@@ -2,6 +2,8 @@ import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
+import Footer from '~/blocks/Footer';
+
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
@@ -14,7 +16,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <hrml>
+      <html>
         <Head>
           <link
             href="https://fonts.googleapis.com/css?family=Bangers"
@@ -37,9 +39,10 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <Main />
+          <Footer />
           <NextScript />
         </body>
-      </hrml>
+      </html>
     );
   }
 }

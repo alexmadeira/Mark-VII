@@ -7,18 +7,15 @@ import { Container, Logo, TitleBox } from './styles';
 
 export default function Project({ item }) {
   return (
-    <Container item={item}>
-      <Image src="http://data.alexmadeira.com.br/files/alex-madeira-smiles-preview.jpg" />
+    <Container item={item.order}>
+      <Image src={item.preview.file} />
       <Logo className="logo">
         <a to="/projeto/st-marche">
-          <img
-            src="http://data.alexmadeira.com.br/files/alex-madeira-smiles-logo.png"
-            alt="alex-madeira-smiles-logo.png"
-          />
+          <img src={item.logo.file} alt="alex-madeira-smiles-logo.png" />
         </a>
       </Logo>
       <TitleBox className="title">
-        <Title>Smiles</Title>
+        <Title>{item.name}</Title>
       </TitleBox>
 
       {/* <div className="DescriptionBox sc-cSHVUG lhwPHq">

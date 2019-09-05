@@ -24,7 +24,12 @@ export const Container = styled.div`
   opacity: 1;
   animation: ${entrada} ${props => (props.item ? 1 + props.item / 5 : 1)}s;
   background: ${props => (props.bgcolor ? `url(${props.bgcolor})` : '#FFFFFF')};
-
+  @media (max-width: 490px) {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
   &::after {
     content: '';
     background-image: url(${props => props.bgimage});
@@ -39,7 +44,7 @@ export const Container = styled.div`
   }
 
   &:nth-child(9n + 1) {
-    min-width: calc(25% - 30px);
+    min-width: calc(35% - 30px);
     .logo {
       left: initial;
       right: 0;
@@ -48,7 +53,7 @@ export const Container = styled.div`
     }
   }
   &:nth-child(9n + 2) {
-    min-width: calc(50% - 30px);
+    min-width: calc(40% - 30px);
   }
   &:nth-child(9n + 3) {
     min-width: calc(25% - 30px);
@@ -162,11 +167,14 @@ export const Logo = styled.div`
 
   @media (max-width: 960px) {
     transform: translate(-50%, -50%) rotate(0deg);
-    left: 50%;
-    top: 50%;
-    width: 40%;
+    left: 50% !important;
+    top: 50% !important;
+    bottom: initial !important;
+    right: initial !important;
+    width: 40% !important;
   }
   @media (max-width: 460px) {
-    width: 85%;
+    width: 60% !important;
+    left: 25% !important;
   }
 `;

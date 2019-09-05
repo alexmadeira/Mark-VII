@@ -12,8 +12,20 @@
     [
       "babel-plugin-root-import",
       {
-        "rootPathPrefix": "~",
-        "rootPathSuffix": "src"
+        "paths": [
+          {
+            "rootPathPrefix": "~",
+            "rootPathSuffix": "components"
+          },
+          {
+            "rootPathPrefix": "styles",
+            "rootPathSuffix": "src/styles"
+          },
+          {
+            "rootPathPrefix": "-",
+            "rootPathSuffix": "src"
+          }
+        ]
       }
     ]
   ]
