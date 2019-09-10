@@ -24,7 +24,7 @@ export default function Home() {
           <h3>Quer saber mais? </h3>
           <p>Dê uma olhadinha nos projetos que participei</p>
           <Center>
-            <Button to="projects" type="outline">
+            <Button to="/projetos" type="outline">
               Projetos
             </Button>
             <Button to="curriculo" type="outline">

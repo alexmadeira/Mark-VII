@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Button from '~/Buttons';
 import Title from '../Title';
 import Image from '../Image';
 
@@ -9,6 +10,7 @@ export default function Project({ item }) {
   return (
     <Container item={item.order}>
       <Image src={item.preview.file} />
+      <Button to={`/projeto/${item.slug}`} type="invisibile" />
       <Logo className="logo">
         <a to="/projeto/st-marche">
           <img src={item.logo.file} alt="alex-madeira-smiles-logo.png" />
