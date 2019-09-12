@@ -1,37 +1,70 @@
-import React from 'react';
+import React, { useState, useEffect, createRef } from 'react';
 
 import Button from '~/Buttons';
 import Title from '../Title';
 import Image from '../Image';
 
-import { Container, Logo, TitleBox } from './styles';
+import {
+  Container,
+  Logo,
+  TitleBox,
+  ViewMore,
+  ButtomMore,
+  DescriptionBox,
+  BigDescriptionBox,
+} from './styles';
 
-export default function Project({ item }) {
+export default function Project({ item, type }) {
+  const [Open, setOpen] = useState(false);
+  const ref = createRef();
+
+  function toogleOpen() {
+    setOpen(!Open);
+  }
+  useEffect(() => {
+    if (Open) {
+      setTimeout(() => {
+        ref.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 500);
+    }
+  }, [Open]);
   return (
-    <Container item={item.order}>
+    <Container
+      ref={ref}
+      item={item.order}
+      bgimage={item.background.url}
+      bgcolor={item.backgroundColor}
+      className={Open && 'open'}
+    >
       <Image src={item.preview.file} />
       <Button to={`/projeto/${item.slug}`} type="invisibile" />
-      <Logo className="logo">
-        <a to="/projeto/st-marche">
-          <img src={item.logo.file} alt="alex-madeira-smiles-logo.png" />
-        </a>
+      <Logo className={`logo ${Open && 'open'}`}>
+        <img src={item.logo.file} alt="alex-madeira-smiles-logo.png" />
       </Logo>
       <TitleBox className="title">
         <Title>{item.name}</Title>
       </TitleBox>
-
-      {/* <div className="DescriptionBox sc-cSHVUG lhwPHq">
-        <h3 className="sc-chPdSV gTrfBz">
-          É mais fácil conhecer o Brasil e o mundo com a Smiles!{' '}
-        </h3>
-      </div>
-      <div className="sc-kAzzGY hGuxFa">
-        <p>
-          Escolhida pelos leitores do jorn e 13 milhões de clientes, emite 5
-          milhões de bilhetes por ano e aproximadamente 6 bilhões de
-          milhas/pontos são resgatados por mês.
-        </p>
-      </div> */}
+      <ViewMore>
+        {Open ? (
+          <ButtomMore onClick={() => toogleOpen()}>Fechar</ButtomMore>
+        ) : (
+          <>
+            <ButtomMore onClick={() => toogleOpen()}>Ver</ButtomMore>
+            <Button to={`/projeto/${item.slug}`} type="solid">
+              Completo
+            </Button>
+          </>
+        )}
+      </ViewMore>
+      <DescriptionBox>
+        <h3>{item.description}</h3>
+      </DescriptionBox>
+      <BigDescriptionBox className={Open && 'open'}>
+        <p>{item.longDescription}</p>
+      </BigDescriptionBox>
     </Container>
   );
 }

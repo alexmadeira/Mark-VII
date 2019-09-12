@@ -1,12 +1,6 @@
 import React from 'react';
-import Button from '~/Buttons';
-
-// import { Container } from './styles';
+import ProjectsList from '~/ProjectsList';
 
 export default function Projects() {
-  return (
-    <Button to="/" type="outline">
-      Home Projetos
-    </Button>
-  );
+  return <ProjectsList order="asc" type="full" />;
 }

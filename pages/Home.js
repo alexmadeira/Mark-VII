@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Banner from '~/Banner';
-import Projects from '~/Projects';
+import ProjectsList from '~/ProjectsList';
 
 import Button from '~/Buttons';
 
@@ -19,7 +19,7 @@ export default function Home() {
     <Container>
       <Banner />
       <Crooked>
-        <Projects limit={6} order="asc" simple />
+        <ProjectsList limit={6} order="asc" type="simple" />
         <Basic reverse top="-40px">
           <h3>Quer saber mais? </h3>
           <p>Dê uma olhadinha nos projetos que participei</p>
