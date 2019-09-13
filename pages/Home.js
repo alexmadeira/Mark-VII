@@ -19,7 +19,7 @@ export default function Home() {
     <Container>
       <Banner />
       <Crooked>
-        <ProjectsList limit={6} order="asc" type="simple" />
+        <ProjectsList limit={6} order="asc" type="simple" name="HOME" />
         <Basic reverse top="-40px">
           <h3>Quer saber mais? </h3>
           <p>Dê uma olhadinha nos projetos que participei</p>

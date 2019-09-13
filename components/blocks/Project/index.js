@@ -47,18 +47,20 @@ export default function Project({ item, type }) {
       <TitleBox className="title">
         <Title>{item.name}</Title>
       </TitleBox>
-      <ViewMore>
-        {Open ? (
-          <ButtomMore onClick={() => toogleOpen()}>Fechar</ButtomMore>
-        ) : (
-          <>
-            <ButtomMore onClick={() => toogleOpen()}>Ver</ButtomMore>
-            <Button to={`/projeto/${item.slug}`} type="solid">
-              Completo
-            </Button>
-          </>
-        )}
-      </ViewMore>
+      {type === 'full' && (
+        <ViewMore>
+          {Open ? (
+            <ButtomMore onClick={() => toogleOpen()}>Fechar</ButtomMore>
+          ) : (
+            <>
+              <ButtomMore onClick={() => toogleOpen()}>Ver</ButtomMore>
+              <Button to={`/projeto/${item.slug}`} type="solid">
+                Completo
+              </Button>
+            </>
+          )}
+        </ViewMore>
+      )}
       <DescriptionBox>
         <h3>{item.description}</h3>
       </DescriptionBox>
