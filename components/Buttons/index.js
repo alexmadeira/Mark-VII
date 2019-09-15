@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '../../routes';
 
-import { Outline, Solid, Invisibile } from './styles';
+import { Outline, Solid, Invisibile, LinkButton } from './styles';
 
 export default function Buttons(props) {
   const { type, children, to } = props;
@@ -28,7 +28,7 @@ export default function Buttons(props) {
     case 'link':
       return (
         <Link to={to}>
-          <a {...props}>{children}</a>
+          <Outline {...props}>{children}</Outline>
         </Link>
       );
     default:
