@@ -8,14 +8,14 @@ class Image extends Component {
   };
 
   render() {
-    const { src, alt, title } = this.props;
+    const { src, alt, title, className } = this.props;
     const { loadImage } = this.state;
     return (
-      <Container>
+      <Container className={className}>
         <Preload
           src={`${src}?thumb=true`}
           alt={alt}
-          className={loadImage && 'hidden'}
+          className={`${loadImage && 'hidden'} `}
         />
         <Content
           src={src}
