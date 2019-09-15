@@ -12,15 +12,18 @@ import {
   ButtomMore,
   DescriptionBox,
   BigDescriptionBox,
+  NextProjectOverlay,
 } from './styles';
 
-export default function Project({ item, type }) {
+export default function Project({ item, type, nextProjectLink }) {
   const [Open, setOpen] = useState(false);
+  const [Hover, setHover] = useState(false);
   const ref = createRef();
 
   function toogleOpen() {
     setOpen(!Open);
   }
+
   useEffect(() => {
     if (Open) {
       setTimeout(() => {
@@ -37,16 +40,29 @@ export default function Project({ item, type }) {
       item={item.order}
       bgimage={item.background.url}
       bgcolor={item.backgroundColor}
-      className={Open && 'open'}
+      className={`${Open && 'open'} ${nextProjectLink && 'overflow'}`}
+      onMouseOver={() => {
+        setHover(true);
+      }}
+      onMouseLeave={() => {
+        setHover(false);
+      }}
     >
-      <Image src={item.preview.file} />
       <Button to={`/projeto/${item.slug}`} type="invisibile" />
-      <Logo className={`logo ${Open && 'open'}`}>
+      <Image
+        src={item.preview.file}
+        className={`${nextProjectLink && 'blur'} ${Hover && 'hover'}`}
+      />
+
+      {nextProjectLink && <NextProjectOverlay className={Hover && 'hover'} />}
+      <Logo className={`logo ${Open && 'open'} ${nextProjectLink && 'center'}`}>
         <img src={item.logo.file} alt="alex-madeira-smiles-logo.png" />
       </Logo>
-      <TitleBox className="title">
-        <Title>{item.name}</Title>
-      </TitleBox>
+      {!nextProjectLink && (
+        <TitleBox className="title">
+          <Title>{item.name}</Title>
+        </TitleBox>
+      )}
       {type === 'full' && (
         <ViewMore>
           {Open ? (
@@ -61,9 +77,11 @@ export default function Project({ item, type }) {
           )}
         </ViewMore>
       )}
-      <DescriptionBox>
-        <h3>{item.description}</h3>
-      </DescriptionBox>
+      {!nextProjectLink && (
+        <DescriptionBox>
+          <h3>{item.description}</h3>
+        </DescriptionBox>
+      )}
       <BigDescriptionBox className={Open && 'open'}>
         <p>{item.longDescription}</p>
       </BigDescriptionBox>

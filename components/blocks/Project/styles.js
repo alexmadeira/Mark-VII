@@ -9,6 +9,7 @@ const entrada = keyframes`
 
 export const Container = styled.div`
   border: 1px solid #000;
+  cursor: pointer;
   flex: 1;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -117,9 +118,6 @@ export const Container = styled.div`
       visibility: visible;
     }
   }
-  img {
-    max-width: initial !important;
-  }
   &.simple {
     @media (min-width: 992px) {
       &:nth-child(9n + 4),
@@ -129,6 +127,19 @@ export const Container = styled.div`
           right: -10px;
         }
       }
+    }
+  }
+  &.overflow {
+    overflow: hidden;
+  }
+  img {
+    max-width: initial !important;
+  }
+  .blur {
+    transition: all 500ms linear;
+    filter: blur(10px);
+    &.hover {
+      filter: blur(0px);
     }
   }
 `;
@@ -160,14 +171,7 @@ export const Logo = styled.div`
   & > a {
     position: relative;
   }
-  &.open {
-    transform: translate(-50%, -50%) !important;
-    left: 50% !important;
-    top: 100px !important;
-    width: initial !important;
-    bottom: initial !important;
-    right: initial !important;
-  }
+
   img {
     filter: drop-shadow(0px 0px 0px #000000);
     transition: all 0.5s;
@@ -177,12 +181,28 @@ export const Logo = styled.div`
     position: relative;
   }
 
+  &.open {
+    transform: translate(-50%, -50%) !important;
+    left: 50% !important;
+    top: 100px !important;
+    width: initial !important;
+    bottom: initial !important;
+    right: initial !important;
+  }
+
+  &.center {
+    transform: rotate(0deg) translate(-50%, -50%);
+    top: 50% !important;
+    left: 50% !important;
+    bottom: initial !important;
+    right: initial !important;
+  }
+
   @media (max-width: 960px) {
     transform: translate(-50%, -50%) rotate(0deg);
     left: 50% !important;
     top: 50% !important;
     bottom: initial !important;
-    right: initial !important;
     width: 40% !important;
   }
   @media (max-width: 460px) {
@@ -307,5 +327,19 @@ export const BigDescriptionBox = styled.div`
   &.open {
     opacity: 1;
     display: block;
+  }
+`;
+
+export const NextProjectOverlay = styled.div`
+  background: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  transition: all 500ms linear;
+  &.hover {
+    background: rgba(0, 0, 0, 0.8);
   }
 `;

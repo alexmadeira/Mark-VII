@@ -225,7 +225,7 @@ export const DestaqueBox = styled.div`
   width: calc(66.66% - 30px);
   min-width: 320px;
   max-width: 100%;
-  animation: ${entradaTop} 1.6s;
+  animation: ${entradaTop} 2s;
   img {
     border: 1px solid #fff;
   }
@@ -272,15 +272,15 @@ export const DestaquesBox = styled.div`
 `;
 
 export const NextProjectBox = styled.div`
-  display: flex;
-  width: 100%;
-  left: -15px;
-  max-height: 320px;
-  margin: 15px 0;
+  position: relative;
+  margin: 15px;
+  min-width: calc(100% - 30px);
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  animation: ${entradaTop} 3s;
   & > * {
-    min-width: 100%;
-    margin: 0;
-    border-color: #fff;
+    border: 1px solid #fff;
   }
 `;

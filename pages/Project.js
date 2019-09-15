@@ -6,6 +6,8 @@ import Title from '~/blocks/Title';
 import Image from '~/blocks/Image';
 import Back from '~/blocks/Back';
 
+import NextProject from '~/blocks/Project';
+
 import api from '-/services/api';
 
 import {
@@ -20,6 +22,7 @@ import {
   DestaqueBox,
   ProdutoDestaqueBox,
   DestaquesBox,
+  NextProjectBox,
 } from 'styles/Project';
 
 function Project({ project }) {
@@ -35,6 +38,7 @@ function Project({ project }) {
     destaqueEsquerda,
     destaqueCentro,
     destaqueDireita,
+    nextProject,
   } = project;
 
   return (
@@ -90,19 +94,13 @@ function Project({ project }) {
         <DestaquesBox>
           <Image src={destaqueDireita.url} alt={destaqueDireita.name} />
         </DestaquesBox>
-        {/* <Row className="noHorizontalMargin">
-
-
-      </Row>
-      <Row>
-
-      </Row>
-      <Row className="topMargin noHorizontalMargin">
-
-      </Row>
-      <NextProjectBox>
-        <NextProject project={nextProject} history={history} simple nextProjectLink />
-      </NextProjectBox> */}
+        <NextProjectBox>
+          <NextProject
+            item={nextProject}
+            type="simple"
+            nextProjectLink={true}
+          />
+        </NextProjectBox>
       </Container>
     </>
   );
