@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "node server.js",
     "devNext": "next dev",
+    "builbd": "next build",
+    "start": "NODE_ENV=production node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "export": "next export",
+    "deploy": "npm run build && npm run export"
   },
   "dependencies": {
     "axios": "^0.19.0",

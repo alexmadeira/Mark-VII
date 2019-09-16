@@ -49,7 +49,7 @@ export default function Home() {
         <p>Entre em contato, ou não</p>
         <div>
           <Button
-            href="mailto:alex@alexmadeira.com.br"
+            href="mailto:alex.c.madeira@gmail.com"
             target="_top"
             rel="noopener noreferrer"
             type="link"
